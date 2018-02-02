@@ -9,5 +9,5 @@
 # * * * * *  command to execute
 
 crontab -e
-0,30,18 0 0 0 0
+0,30,18 * * * *
 usr/bin/echo "hello world"
