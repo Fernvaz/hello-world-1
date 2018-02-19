@@ -1,0 +1,23 @@
+#!/bin/bash
+yum install python-pip                                            #Using Gcloud.
+pip install virtualenv
+pip install --upgrade pip                                         #Why doesn't this download the latest by default?
+mkdir /opt/django
+cd /opt/django
+
+yum install epel-release
+yum install python34 python-pip                                   #Upgrades python.
+
+virtualenv -p python3 django
+cd django
+source bin/activate
+
+pip install django
+django-admin startproject project1
+
+cd ..                                                              #Isn't in the right directory by default for this operation.
+chown -R tjense04 django
+yum install git
+
+#When on the machine, go to opt/django/django/project1 and open manage.py in vim and feed it the machine's public IP.
+#Then run /opt/django/django/project1/manage.py runserver 0.0.0.0:8000&.
