@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo -u 
 yum install python-pip -y                                           #Using Gcloud.
 pip install virtualenv
 pip install --upgrade pip                                         #Why doesn't this download the latest by default?
@@ -19,5 +20,12 @@ cd ..                                                              #Isn't in the
 sudo chown -R tjense04 django
 yum install git -y
 
-#When on the machine, go to opt/django/django/project1 and open manage.py in vim and feed it the machine's public IP.
-#Then run /opt/django/django/project1/manage.py runserver 0.0.0.0:8000&.
+
+myip-$=( curl https://api.ipfy.org )                                 #Gets global IP address and stores it.
+sed -i “s/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS =  \[‘“$myip”’\]/g” /opt/django/django/project1/project1/settings.py 
+
+#
+#
+#
+
+sudo -u tjense04 /opt/django/django/project1/manage.py runserver 0.0.0.0:8000&
