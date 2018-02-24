@@ -21,11 +21,9 @@ sudo chown -R tjense04 django
 yum install git -y
 
 
-myip-$=( curl https://api.ipfy.org )                                 #Gets global IP address and stores it.
-sed -i “s/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS =  \[‘“$myip”’\]/g” /opt/django/django/project1/project1/settings.py 
 
-#
-#
-#
-
-sudo -u tjense04 /opt/django/django/project1/manage.py runserver 0.0.0.0:8000&
+su -u tjense04 
+virtualenv -p python3 django
+cd opt/django/django
+source bin/activate
+/opt/django/django/project1/manage.py runserver 0.0.0.0:8000&
