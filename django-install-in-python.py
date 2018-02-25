@@ -4,7 +4,7 @@ import os
 def django_setup():
   os.system(sudo yum install python-pip -y)
   os.system(sudo pip install virtualenv)
-  os.system(pip install --upgrade pip)
+  os.system(sudo pip install --upgrade pip)
   os.mkdir(/opt/django)
   os.chdir(/opt/django)
 
