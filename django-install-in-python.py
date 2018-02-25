@@ -19,7 +19,7 @@ def django_install():
   os.system('sudo pip install django')
   os.system('sudo django-admin startproject project1')
 
-  os.chdir(..)
+  os.chdir('..')
   os.system('sudo chown -R tjense04 django')
   os.system('yum install git -y')
 
