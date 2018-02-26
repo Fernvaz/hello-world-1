@@ -5,7 +5,7 @@ def django_setup():
   os.system('sudo yum install python-pip -y')
   os.system('sudo pip install virtualenv')
   os.system('sudo pip install --upgrade pip')
-  os.system('mkdir /opt/django')
+  os.system('sudo mkdir /opt/django')
   os.chdir('/opt/django')
 
   os.system('sudo yum install epel-release -y')
