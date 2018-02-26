@@ -12,8 +12,8 @@ def django_setup():
   os.system('sudo yum install python34 python-pip -y')
   
 def django_install():
-  os.system('sudo virtualenv -p python3 django')
   os.chdir('/opt/django/django')
+  os.system('sudo virtualenv -p python3 django')
   os.system('sudo source bin/activate')
 
   os.system('sudo pip install django')
