@@ -25,10 +25,8 @@ def django_install():
 
 
 
-  os.system('myip-$=( curl https://api.ipfy.org )')
+  os.system('myip-$=( curl https://api.ipfy.org ) && 'sed -i “s/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS =  \[‘“$myip”’\]/g” /opt/django/django/project1/project1/settings.py ')
   #Gets global IP address and stores it.
-
-  os.system('sed -i “s/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS =  \[‘“$myip”’\]/g” /opt/django/django/project1/project1/settings.py ')
   #First, we define myip as the curled result of an external IP grabber.
   #Stream editor (sed) statement: -i is insert. Use of "\" slashes is called escaping.
   # s/ tells sed to search for the given term.
