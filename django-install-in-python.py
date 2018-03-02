@@ -16,7 +16,7 @@ def django_install():
   os.chdir('/opt/django/django')
   os.system('source /opt/django/django/bin/activate && pip install django')
 
-  os.system('django-admin startproject project1')
+  os.system('source /opt/django/django/bin/activate && django-admin startproject project1')
 
   os.chdir('..')
   os.system('sudo chown -R tjense04 /opt/django')
