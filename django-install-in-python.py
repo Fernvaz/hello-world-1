@@ -7,6 +7,7 @@ def django_setup():
   os.system('sudo pip install --upgrade pip')
   os.system('sudo mkdir /opt/django')
   os.chdir('/opt/django')
+  os.system('sudo useradd tjense04
 
   os.system('sudo yum install epel-release -y')
   os.system('sudo yum install python34 python-pip -y')
