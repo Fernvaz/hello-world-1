@@ -16,10 +16,10 @@ def django_install():
   os.chdir('/opt/django/django')
   os.system('source /opt/django/django/bin/activate && pip install django')
 
-  os.system('sudo django-admin startproject project1')
+  os.system('django-admin startproject project1')
 
   os.chdir('..')
-  os.system('sudo chown -R tjense04 django')
+  os.system('sudo chown -R tjense04 /opt/django')
   os.system('yum install git -y')
 
 
