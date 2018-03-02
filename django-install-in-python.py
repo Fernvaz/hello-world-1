@@ -10,13 +10,12 @@ def django_setup():
 
   os.system('sudo yum install epel-release -y')
   os.system('sudo yum install python34 python-pip -y')
-  
-def django_install():
-  os.chdir('/opt/django/django')
-  os.system('sudo virtualenv -p python3 django')
-  os.system('sudo source bin/activate')
 
-  os.system('sudo pip install django')
+def django_install():
+  os.system('sudo virtualenv -p python3 django')
+  os.chdir('/opt/django/django')
+  os.system('source /opt/django/django/bin/activate && pip install django')
+
   os.system('sudo django-admin startproject project1')
 
   os.chdir('..')
@@ -25,7 +24,7 @@ def django_install():
 
 
 
-  os.system('myip=$( curl ifconfig.co ) && sed -i "s/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS =  \['"$myip"'\]/g" /opt/django/django/project1/project1/settings.py ')
+  os.system('myip=$( curl ifconfig.co ) && sed -i "s/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS =  \[\'"$myip"\'\]/g" /opt/django/django/project1/project1/settings.py ')
   #Gets global IP address and stores it.
   #First, we define myip as the curled result of an external IP grabber.
   #Stream editor (sed) statement: -i is insert. Use of "\" slashes is called escaping.
@@ -34,5 +33,8 @@ def django_install():
 def django_start():
   os.system('sudo -u tjense04 virtualenv -p python3 django')
   os.chdir('/opt/django/django')
-  os.system('sudo -u tjense04 source bin/activate')
-  os.system('/opt/django/django/project1/manage.py runserver 0.0.0.0:8000&')
+  os.system('sudo -u tjense04 -E sh -c "source /opt/django/django/bin/activate && /opt/django/django/project1/manage.py runserver 0.0.0.0:8000&"')
+
+django_setup()
+django_install()
+django_start()
