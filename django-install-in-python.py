@@ -31,7 +31,7 @@ def django_install():
   # s/ tells sed to search for the given term.
 
 def django_start():
-  os.system('sudo -u tjense04 virtualenv -p python3 django')
+#  os.system('sudo -u tjense04 virtualenv -p python3 django')
   os.chdir('/opt/django/django')
   os.system('sudo -u tjense04 -E sh -c "source /opt/django/django/bin/activate && /opt/django/django/project1/manage.py runserver 0.0.0.0:8000&"')
 
