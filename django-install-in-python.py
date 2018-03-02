@@ -37,4 +37,6 @@ def django_start():
 
 django_setup()
 django_install()
+django_setup()
+django_install()
 django_start()
