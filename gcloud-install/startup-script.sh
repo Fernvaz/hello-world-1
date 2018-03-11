@@ -39,3 +39,8 @@ def django_start():
 django_setup()
 django_install()
 django_start()
+
+def git_install():
+  os.system('sudo yum install git -y')
+  
+git_install
