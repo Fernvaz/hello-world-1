@@ -1,13 +1,16 @@
 #!/bin/bash
 sudo -u 
-yum install python-pip -y                                           #Using Gcloud.
+yum install python-pip -y
+#Using Gcloud.
 pip install virtualenv
-pip install --upgrade pip                                         #Why doesn't this download the latest by default?
-mkdir /opt/django
+pip install --upgrade pip
+#Why doesn't this download the latest by default?
+sudo mkdir /opt/django
 cd /opt/django
 
 yum install epel-release -y
-yum install python34 python-pip -y                                   #Upgrades python.
+yum install python34 python-pip -y
+#Upgrades python.
 
 virtualenv -p python3 django
 cd django
@@ -16,7 +19,8 @@ source bin/activate
 pip install django
 django-admin startproject project1
 
-cd ..                                                              #Isn't in the right directory by default for this operation.
+cd ..
+#Isn't in the right directory by default for this operation.
 sudo chown -R tjense04 django
 yum install git -y
 
