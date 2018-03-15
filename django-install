@@ -22,7 +22,7 @@ yum install git -y
 
 
 
-su -u tjense04 
+sudo -u tjense04 
 virtualenv -p python3 django
 cd opt/django/django
 source bin/activate
